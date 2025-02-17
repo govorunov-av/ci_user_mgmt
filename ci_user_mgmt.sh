@@ -38,6 +38,7 @@ create_users() {
 
     #Применяем лимиты
     openstack quota set --cores "$CORES_LIMIT" --ram "$RAM_LIMIT" --gigabytes "$GIGABYTES_LIMIT"  --floating-ips "$FLOATING_IPS_LIMIT" "$project_name" $INSECURE
+    openstack loadbalancer quota set --loadbalancer "$LOADBALANCER_LIMIT" "$project_name" $INSECURE
     echo "Лимиты установлены --cores $CORES_LIMIT --ram $RAM_LIMIT --gigabytes $GIGABYTES_LIMIT --floating-ips $FLOATING_IPS_LIMIT в $project_name"
 }
 
